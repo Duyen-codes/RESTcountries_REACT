@@ -160,8 +160,9 @@ select {
 }
 
 .card:hover {
-  box-shadow: 5px 8px 10px rgba(0, 0, 0, 0.4);
-  border: 1px solid var(--clr-text);
+  box-shadow: rgba(240, 46, 170, 0.4) -5px 5px,
+    rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px;
+  transform: translate(3px, -3px);
 }
 
 .no-found {
