@@ -22,8 +22,9 @@ body {
   --clr-text: hsl(0, 0%, 100%);
   --clr-input-text: hsl(0, 0%, 100%);
   background: var(--clr-body-background);
-  color: var(--clr-font);
+  color: var(--clr-text);
   font-size: 1.6rem;
+  padding: 2rem;
 }
 
 .light {
@@ -132,7 +133,7 @@ select {
 .cards {
   display: grid;
   /* Note auto-fill instead of auto-fit to prevent 1 card to strech all the screen on search */
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 5rem;
   place-content: center;
   padding-top: 4rem;
