@@ -24,7 +24,6 @@ body {
   background: var(--clr-body-background);
   color: var(--clr-text);
   font-size: 1.6rem;
-  padding: 2rem;
 }
 
 .light {
@@ -88,7 +87,7 @@ main {
 }
 
 /* SEARCH FIELD  */
-.search-field {
+form {
   display: grid;
   grid-template-columns: 1fr 5fr;
   place-items: center;
@@ -111,6 +110,7 @@ main {
 
 .search-input::placeholder {
   font-weight: 600;
+  color: rgb(231, 230, 230);
 }
 
 i {
@@ -127,6 +127,7 @@ select {
   color: var(--clr-text);
   border: none;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+  font-family: inherit;
 }
 
 /* Cards  */
@@ -136,7 +137,7 @@ select {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 5rem;
   place-content: center;
-  padding-top: 4rem;
+  padding: 4rem 2rem 0;
   margin: 0 auto;
 }
 
