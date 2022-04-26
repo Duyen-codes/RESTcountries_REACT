@@ -49,6 +49,7 @@ header {
   padding: 2rem 5rem;
   display: flex;
   justify-content: space-between;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
 }
 
 header a {
@@ -125,9 +126,11 @@ select {
   padding: 2rem 4rem;
   border-radius: 0.5rem;
   color: var(--clr-text);
+  /* remove default border */
   border: none;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
   font-family: inherit;
+  width: 200px;
 }
 
 /* Cards  */
