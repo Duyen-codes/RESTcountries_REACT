@@ -96,10 +96,10 @@ form {
   border-radius: 0.5rem;
   width: 100%;
   max-width: 500px;
-  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
-.search-input {
+form input {
   border: none;
   background: var(--clr-card-background);
   color: var(--clr-input-text);
@@ -107,6 +107,7 @@ form {
   width: 100%;
   border-radius: 1rem;
   outline: none;
+  font-size: 1.8rem;
 }
 
 .search-input::placeholder {
