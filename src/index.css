@@ -136,16 +136,16 @@ select {
   width: 200px;
 }
 
-/* Cards  */
-.cards {
-  display: grid;
-  /* Note auto-fill instead of auto-fit to prevent 1 card to strech all the screen on search */
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+/* Cards  style with grid */
+/* .cards { */
+/* display: grid; */
+/* Note auto-fill instead of auto-fit to prevent 1 card to strech all the screen on search */
+/* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 5rem;
   place-content: center;
   padding: 4rem 5rem 0;
-  margin: 0 auto;
-}
+  margin: 0 auto; */
+/* } */
 
 .card {
   display: inline-block;
@@ -159,6 +159,21 @@ select {
   color: var(--clr-text);
   cursor: pointer;
   transition: all 0.5s ease;
+}
+
+/* implement cards style responsive with flex  */
+
+.cards {
+  padding: 4rem 5rem 0;
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.cards > * {
+  flex: 1 0 auto; /* flex-grow: 1, flex-shrink:0,flex-basis: auto */
+  width: 30rem; /* if width > max-width, use max-width */
+  max-width: 100%; /* if max-width > width, use width */
 }
 
 .card:hover {
