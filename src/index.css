@@ -92,7 +92,7 @@ main {
 /* SEARCH FIELD  */
 form {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 7fr;
   place-items: center;
   background: var(--clr-card-background);
   border-radius: 0.5rem;
@@ -105,7 +105,7 @@ form input {
   border: none;
   background: var(--clr-card-background);
   color: var(--clr-input-text);
-  padding: 2rem 0;
+  padding: 2rem 1rem;
   width: 100%;
   border-radius: 1rem;
   outline: none;
@@ -114,7 +114,7 @@ form input {
 
 .search-input::placeholder {
   font-weight: 600;
-  color: rgb(231, 230, 230);
+  color: rgb(211, 208, 208);
 }
 
 i {
