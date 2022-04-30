@@ -24,8 +24,8 @@ class CountryList extends Component {
     }
     return (
       <div className="cards">
-        {this.state.countries.map((country) => {
-          return <CountryCard info={country} key={country.numericCode} />;
+        {this.state.countries.map((country, index) => {
+          return <CountryCard info={country} key={index} />;
         })}
       </div>
     );

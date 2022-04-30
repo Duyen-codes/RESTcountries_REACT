@@ -1,27 +1,13 @@
 import React from "react";
+import Search from "./Search";
+import Select from "./Select";
 
-const Filter = () => {
+const Filter = (props) => {
   return (
     <section className="search-filter-container">
-      <form>
-        <i className="fa-solid fa-magnifying-glass"></i>
-        <input
-          className="search-input"
-          type="text"
-          name="search"
-          placeholder="Search for a country..."
-        />
-      </form>
+      <Search />
 
-      <select name="regions" id="regions" aria-label="regions">
-        <option value="">Filter by Region</option>
-        <option value="all">All</option>
-        <option value="africa">Africa</option>
-        <option value="americas">America</option>
-        <option value="asia">Asia</option>
-        <option value="europe">Europe</option>
-        <option value="oceania">Oceania</option>
-      </select>
+      <Select />
     </section>
   );
 };
