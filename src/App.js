@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Filter from "./components/Filter";
 import CountryDetails from "./components/CountryDetails";
 import Layout from "./pages/Layout";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   const [theme, setTheme] = useState(false);
@@ -13,14 +14,12 @@ function App() {
     setTheme((prevState) => !prevState);
   };
   return (
-    <>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Header />} />
-        </Route>
+        <Route path="/" element={<Layout />}></Route>
         <Route path=":countrydetail" element={<CountryDetails />} />
       </Routes>
-    </>
+    </BrowserRouter>
   );
 }
 export default App;
