@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import CountryList from "../components/CountryList";
 import Footer from "../components/Footer";
-import ToTopButton from "../components/ToTopButton";
+import ScrollToTop from "../components/ScrollToTop";
 
 const Layout = () => {
   return (
@@ -10,7 +10,7 @@ const Layout = () => {
       <Header />
       <CountryList />
       <Footer />
-      <ToTopButton />
+      <ScrollToTop />
     </>
   );
 };
