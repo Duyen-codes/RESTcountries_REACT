@@ -73,7 +73,7 @@ header button {
 
 /* MAIN */
 main {
-  padding: 3rem 2rem;
+  padding: 3rem 5rem;
   /* set position relative for positioning modal  */
   position: relative;
 }
@@ -85,6 +85,8 @@ main {
   flex-direction: column;
   gap: 5rem;
   align-items: flex-start;
+  margin-top: 2rem;
+  padding-inline: 5rem;
 }
 
 /* SEARCH FIELD  */
@@ -138,10 +140,10 @@ select {
 .cards {
   display: grid;
   /* Note auto-fill instead of auto-fit to prevent 1 card to strech all the screen on search */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 5rem;
   place-content: center;
-  padding: 4rem 2rem 0;
+  padding: 4rem 5rem 0;
   margin: 0 auto;
 }
 

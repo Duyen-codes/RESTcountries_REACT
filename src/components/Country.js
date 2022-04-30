@@ -2,7 +2,7 @@ import React from "react";
 
 const Country = (props) => {
   return (
-    <div className="card">
+    <>
       <img
         className="flag"
         src={props.country.flags.svg}
@@ -24,7 +24,7 @@ const Country = (props) => {
           <span className="capital">{props.country.capital}</span>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

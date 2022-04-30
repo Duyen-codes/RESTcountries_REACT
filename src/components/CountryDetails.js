@@ -1,6 +1,6 @@
 import React from "react";
 
-const CountryDetails = () => {
+const CountryDetails = (props) => {
   return (
     <div>
       <button class="btn back-btn">
