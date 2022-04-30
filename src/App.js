@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />} />
         <Route
-          path="/country/:id"
+          path="/country/:countryname"
           element={
             <>
               <Header />

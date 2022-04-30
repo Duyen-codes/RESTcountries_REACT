@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
-import CountryList from "../components/CountryList";
+import Main from "../components/Main";
 import Footer from "../components/Footer";
 import ScrollToTop from "../components/ScrollToTop";
 
@@ -8,7 +8,7 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <CountryList />
+      <Main />
       <Footer />
       <ScrollToTop />
     </>
