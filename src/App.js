@@ -1,30 +1,22 @@
 import "./App.css";
-import { useState } from "react";
-import Header from "./components/Header";
-import CountryDetails from "./components/CountryDetails";
+import CountryDetail from "./components/CountryDetail";
 import Layout from "./pages/Layout";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+
+const RouterWrapper = (props) => {
+  const params = useParams();
+  return <CountryDetail params={params} {...props} />;
+};
 
 function App() {
-  const [theme, setTheme] = useState(false);
-  const switchMode = () => {
-    setTheme((prevState) => !prevState);
-  };
   return (
-    <BrowserRouter>
+    <>
       <Routes>
-        <Route path="/" element={<Layout />} />
-        <Route
-          path="/country/:countryname"
-          element={
-            <>
-              <Header />
-              <CountryDetails />
-            </>
-          }
-        />
+        <Route path="/" element={<Layout />}></Route>
+        <Route path=":name" element={<RouterWrapper />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 export default App;

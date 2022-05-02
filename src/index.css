@@ -101,7 +101,7 @@ main {
 }
 
 /* SEARCH FIELD  */
-form {
+.search-wrapper {
   display: grid;
   grid-template-columns: 1fr 7fr;
   place-items: center;
@@ -112,7 +112,7 @@ form {
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
 }
 
-form input {
+.search-wrapper input {
   border: none;
   background: var(--clr-card-background);
   color: var(--clr-input-text);

@@ -9,6 +9,7 @@ const url = "https://restcountries.com/v3.1/all";
 class Main extends Component {
   state = {
     countries: [],
+    filteredCountries: [],
     isLoading: false,
     searchTerm: "",
   };
@@ -18,6 +19,7 @@ class Main extends Component {
     fetch(url)
       .then((response) => response.json())
       .then((countries) => {
+        console.log(countries);
         this.setState({ countries: countries, isLoading: false });
       });
   }
@@ -33,7 +35,7 @@ class Main extends Component {
         {!this.state.isLoading && (
           <div className="cards">
             {this.state.countries.map((country, index) => (
-              <Link key={index} to={`country/${country.cca2}`}>
+              <Link key={index} to={`${country.cca2}`} className="card">
                 <CountryCard
                   flag={country.flags.svg}
                   name={country.name.official}

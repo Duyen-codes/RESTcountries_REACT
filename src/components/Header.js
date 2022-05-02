@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <>
       <header>
-        <Link to={"/"}>
+        <Link to="/">
           <span>Where in the world?</span>
         </Link>
         <button className="btn-toggle">

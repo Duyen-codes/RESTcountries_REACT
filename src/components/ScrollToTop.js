@@ -27,7 +27,7 @@ class ScrollToTop extends Component {
     return (
       this.state.is_visible && (
         <button className="to-top-btn" onClick={this.scrollToTop}>
-          <i class="fa-solid fa-chevron-up"></i>
+          <i className="fa-solid fa-chevron-up"></i>
         </button>
       )
     );
