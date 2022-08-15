@@ -1,36 +1,35 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 
-class ScrollToTop extends Component {
-  state = { is_visible: false };
-  componentDidMount() {
-    let scrollComponent = this;
-    document.addEventListener("scroll", function (e) {
-      scrollComponent.toggleVisibility();
-    });
-  }
+const ScrollToTop = () => {
+  const [visible, setVisible] = useState('false');
 
-  toggleVisibility() {
+  const toggleVisibility =() => {
     if (window.pageYOffset > 300) {
-      this.setState({ is_visible: true });
+      setVisible(true)
     } else {
-      this.setState({ is_visible: false });
+      setVisible(false)
     }
   }
+  useEffect(() => {
+  
+    document.addEventListener("scroll", function (e) {
+      toggleVisibility();
+    });
+  });
 
-  scrollToTop() {
+ 
+
+  const scrollToTop =() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   }
-  render() {
-    return (
-      this.state.is_visible && (
-        <button className="to-top-btn" onClick={this.scrollToTop}>
+
+  if(visible) {
+       return   <button className="to-top-btn" onClick={() => scrollToTop}>
           <i className="fa-solid fa-chevron-up"></i>
         </button>
-      )
-    );
   }
 }
 

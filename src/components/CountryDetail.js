@@ -1,101 +1,108 @@
-import React, { Component,useState } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useState, useEffect} from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
+const CountryDetail = ({darkMode}) => {
 
-import React from 'react';
+  let location = useLocation()
+  let {country} = location?.state
+  const languages = country?.languages
+  const currencies = country?.currencies
+  const [borderCountry, setBorderCountry] = useState('');
+ 
 
-const CountryDetail = () => {
-  const [data, setData] = useState('')
-  const [loading, setLoading] = useState(true)
-  return (
-    <div>
-      
-    </div>
-  );
-};
+  const params = useParams()
+  const navigate = useNavigate()
 
-export default CountryDetail;
-class CountryDetail extends Component {
-  state = {
-    data: [],
-    isLoading: false,
-  };
+    const handleBorderClick = async (border) => {
+      setBorderCountry(border.toLowerCase())
+     await axios.get(`https://restcountries.com/v3.1/alpha/${borderCountry}`)
+      .then(response => {
+        country = response.data
+        console.log('inside handleBorderclick', country)})
+    }
 
-  componentDidMount() {
-    this.setState({ isLoading: true });
-    fetch(`https://restcountries.com/v3.1/name/${this.props.params}`)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("from CountryDetail: ", data);
-        this.setState({ data: data, isLoading: false });
-      });
-  }
-  render() {
-    return (
-      <div>
-        <Link to="/">
-          <button className="btn back-btn">
-            <i className="fa-solid fa-arrow-left"></i>Back
-          </button>
-        </Link>
-        <h2>Country detail is here</h2>
-        <div className="country-details">
-          <img src={this.state.data.flag} />
+    let name;
 
-          <div className="country-content">
-            <h3 className="modal-title"></h3>
-            <div className="country-content-middle">
-              <div className="content-middle-left">
-                <div>
-                  <span className="native-name country-info">Native Name:</span>
-                  <span></span>
-                </div>
-                <div>
-                  <span className="population country-info">Population: </span>
-                  <span></span>
-                </div>
-                <div>
-                  <span className="region country-info">Region: </span>
-                  <span></span>
-                </div>
-                <div>
-                  <span className="sub-region country-info">Sub Region: </span>
-                  <span></span>
-                </div>
-                <div>
-                  <span className="capital country-info">Capital: </span>
-                  <span></span>
-                </div>
+    const backToPrevious = () => {
+      navigate('/');
+    }
+
+  return  (
+    <div className={`country-detail-wrap ${darkMode ? 'light' : ''}`}>
+      <button className="btn back-btn" onClick={backToPrevious}>
+          <i className="fa-solid fa-arrow-left"></i>Back
+      </button>
+      <div className={`country-details ${darkMode ? 'light' : ''}`}>
+        <img src={country.flags.svg} />
+
+        <div className="country-content">
+          <h3 className="modal-title"></h3>
+          <div className="country-content-middle">
+            <div className="content-middle-left">
+              <div>
+                <span className="native-name country-info">Native Name: </span>
+                <span>{country?.name?.nativeName?.eng?.official || country?.name?.nativeName?.ara?.official}</span>
               </div>
-
-              <div className="content-middle-right">
-                <div>
-                  <span className="domain country-info">
-                    Top Level Domain:{" "}
-                  </span>
-                  <span></span>
-                </div>
-                <div>
-                  <span className="currency country-info">Currencies:</span>
-                  <span></span>
-                </div>
-
-                <div>
-                  <span className="language country-info">Languages: </span>
-                  <span></span>
-                </div>
+              <div>
+                <span className="population country-info">Population: </span>
+                <span>{country.population}</span>
               </div>
+              <div>
+                <span className="region country-info">Region: </span>
+                <span>{country.region}</span>
+              </div>
+              <div>
+                <span className="sub-region country-info">Sub Region: </span>
+                <span>{country.subregion}</span>
+              </div>
+              <div>
+                <span className="capital country-info">Capital: </span>
+                <span>{country.capital[0]}</span>
+              </div>
+            <a href={country.maps.googleMaps} target="_blank">{country.maps.googleMaps}</a>
+              
             </div>
 
-            <div className="border-country-container">
-              <span>Border Countries:</span>
-              <div className="country-buttons"></div>
+            <div className="content-middle-right">
+              <div>
+                <span className="domain country-info">
+                  Top Level Domain:{" "}
+                </span>
+                <span></span>
+              </div>
+              <div>
+                <span className="currency country-info">Currencies:</span>
+               <span>{Object.values(currencies || {}).map((val, index) => {
+                return <span key={index}>{val.name} {val.symbol}</span>
+               })}
+               </span>
+              </div>
+
+              <div>
+                <span className="language country-info">Languages: </span>
+                {Object.values(languages).map((val, index) => {
+                  return <span key={index}>{val}</span>
+                })}
+              </div>
+            </div>
+          </div>
+
+          <div className="border-country-container">
+            <span>Border Countries:</span>
+            <div className="country-buttons">
+              {country?.borders?.map(border => {
+                return <button className="border-country-btn">
+                  {border}</button>
+              })}
             </div>
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default CountryDetail;

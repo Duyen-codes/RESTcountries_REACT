@@ -1,0 +1,10 @@
+:root {
+    --dark-mode-element: hsl(209,23%,22%);
+    --dark-mode-bg: hsl(207, 26%, 17%);
+    --light-mode-bg: hsl(0, 0%, 98%);
+}
+
+
+.app {
+    background-color:var(--clr-body-background);
+}

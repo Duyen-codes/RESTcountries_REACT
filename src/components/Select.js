@@ -1,12 +1,12 @@
 import React from "react";
 
-const Select = (props) => {
+const Select = ({select, handleSelect}) => {
   return (
     <select
       name="regions"
       id="regions"
       aria-label="regions"
-      onChange={(e) => selectHandler(e.target.value)}
+      onChange={(e) => handleSelect(e.target.value)}
     >
       <option value="">Filter by Region</option>
       <option value="all">All</option>

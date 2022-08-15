@@ -1,6 +1,6 @@
 import React from "react";
 
-const Search = (props) => {
+const Search = ({searchCountries}) => {
   return (
     <div className="search-wrapper">
       <i className="fa-solid fa-magnifying-glass"></i>
@@ -9,6 +9,8 @@ const Search = (props) => {
         type="text"
         name="search"
         placeholder="Search for a country..."
+        onChange={ (e) => searchCountries(e.target.value) }
+       
       />
     </div>
   );

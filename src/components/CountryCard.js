@@ -1,6 +1,8 @@
 import React from "react";
 
-const CountryCard = ({ name, population, region, flag, capital, id }) => {
+const CountryCard = ({ name, population, region, flag, capital,code, showDetails }) => {
+
+
   return (
     <>
       <img className="flag" src={flag} alt={name} />

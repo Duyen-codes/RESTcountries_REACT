@@ -6,7 +6,6 @@ const Filter = (props) => {
   return (
     <section className="search-filter-container">
       <Search />
-
       <Select />
     </section>
   );
