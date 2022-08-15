@@ -1,6 +1,20 @@
-import React, { Component } from "react";
+import React, { Component,useState } from "react";
 import { Link } from "react-router-dom";
 
+
+import React from 'react';
+
+const CountryDetail = () => {
+  const [data, setData] = useState('')
+  const [loading, setLoading] = useState(true)
+  return (
+    <div>
+      
+    </div>
+  );
+};
+
+export default CountryDetail;
 class CountryDetail extends Component {
   state = {
     data: [],
