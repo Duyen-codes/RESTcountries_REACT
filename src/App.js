@@ -6,6 +6,7 @@ import CountryList from "./components/CountryList";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import { useState } from "react";
+import BorderCountryDetail from "./components/BorderCountryDetail";
 
 
 function App() {
@@ -19,7 +20,9 @@ function App() {
       <Header onClick={switchMode} darkMode={darkMode}/>
       <Routes>
         <Route path="/" element={<CountryList darkMode={darkMode}/>}></Route>
-        <Route path="/:countryCode" element={ <CountryDetail darkMode={darkMode}/>}></Route>
+        <Route path="/:countryCode" element={ <CountryDetail darkMode={darkMode}/>}>
+          <Route path="/:countryCode/:borderCountry" element={<BorderCountryDetail />}></Route>
+        </Route>
       </Routes>
       <Footer darkMode={darkMode}/>
       <ScrollToTop />

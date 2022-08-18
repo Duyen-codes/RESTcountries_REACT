@@ -1,18 +1,16 @@
 import axios from "axios";
-import React, { useState, useEffect} from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState} from "react";
+import {  useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const CountryDetail = ({darkMode}) => {
-
   let location = useLocation()
   let {country} = location?.state
   const languages = country?.languages
   const currencies = country?.currencies
   const [borderCountry, setBorderCountry] = useState('');
- 
-
   const params = useParams()
   const navigate = useNavigate()
 
@@ -21,10 +19,8 @@ const CountryDetail = ({darkMode}) => {
      await axios.get(`https://restcountries.com/v3.1/alpha/${borderCountry}`)
       .then(response => {
         country = response.data
-        console.log('inside handleBorderclick', country)})
+        })
     }
-
-    let name;
 
     const backToPrevious = () => {
       navigate('/');
@@ -94,8 +90,8 @@ const CountryDetail = ({darkMode}) => {
             <span>Border Countries:</span>
             <div className="country-buttons">
               {country?.borders?.map(border => {
-                return <button className="border-country-btn">
-                  {border}</button>
+                return <Link to={`/${country.cca3}`} className="border-country-btn">
+                  {border}</Link>
               })}
             </div>
           </div>
