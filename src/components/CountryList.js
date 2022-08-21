@@ -41,15 +41,16 @@ const CountryList = ({ darkMode }) => {
   const handleSelect = (selectedRegion) => {
     setSelect(selectedRegion);
     if (selectedRegion) {
+      if (selectedRegion === "all") {
+        fetchData();
+        return;
+      }
       const fetchSelect = async () => {
         const response = await fetch(
           `https://restcountries.com/v3.1/region/${selectedRegion}`
         );
         const data = await response.json();
-        if (selectedRegion === "all") {
-          fetchData();
-          return;
-        }
+
         setCountries(data);
         setFilteredCountries(data);
       };
