@@ -1,0 +1,12 @@
+.footer {
+  background: var(--clr-card-background);
+  padding: 2rem 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: var(--clr-text);
+}

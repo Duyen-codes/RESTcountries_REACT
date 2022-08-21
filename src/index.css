@@ -15,7 +15,6 @@ html {
   line-height: 1.7;
 }
 
-
 body {
   font-family: "Nunito Sans", sans-serif;
   --clr-body-background: hsl(207, 26%, 17%);
@@ -46,62 +45,10 @@ img {
 .app-body {
   background-color: var(--clr-body-background);
 }
-/* HEADER  */
-
-header {
-  background-color: var(--clr-card-background);
-  padding: 2rem 5rem;
-  display: flex;
-  justify-content: space-between;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
-  min-height: 10vh;
-
-}
-
-/* .header {
-  background-color: var(--dark-mode-elements);
-  color: white;
-} */
-
-footer {
-  background: var(--clr-card-background);
-  padding: 2rem 5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  color: var(--clr-text)
-}
-
-header a {
-  font-weight: 800;
-  font-size: 2rem;
-  text-align: center;
-}
 
 button {
   cursor: pointer;
   border: none;
-}
-
-header button {
-  background: var(--clr-card-background);
-  color: var(--clr-text);
-  border: none;
-  font-weight: 600;
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-/* MAIN */
-main {
-  padding: 3rem 5rem;
-  /* set position relative for positioning modal  */
-  position: relative;
 }
 
 /* search filter container  */
@@ -164,14 +111,14 @@ select {
 
 /* Cards  style with grid */
 /* .cards {  */
- /* display: grid;  */
+/* display: grid;  */
 /* Note auto-fill instead of auto-fit to prevent 1 card to stretch all the screen on search */
-  /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+/* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 3rem;
   place-content: center;
   padding: 4rem 5rem 0;
   margin: 0 auto;  */
- /* } */
+/* } */
 
 .card {
   background: var(--clr-card-background);
@@ -186,7 +133,6 @@ select {
   transition: all 0.5s ease;
 }
 
-
 /* implement cards style responsive with flex  */
 
 .cards {
@@ -194,6 +140,7 @@ select {
   display: flex;
   gap: 3rem;
   flex-wrap: wrap;
+  color: var(--clr-text);
 }
 
 .cards > * {
@@ -243,7 +190,7 @@ select {
 }
 
 .country-detail-wrap {
-    background-color: var(--clr-body-background);
+  background-color: var(--clr-body-background);
   color: var(--clr-text);
   min-height: 100vh;
 }
@@ -254,7 +201,7 @@ select {
   gap: 3rem;
   margin-inline: 3rem;
   background-color: var(--clr-body-background);
-  color: var(--clr-text)
+  color: var(--clr-text);
 }
 
 .country-content {
@@ -352,7 +299,7 @@ select {
     justify-content: space-between;
     align-items: center;
   }
- /* add this so when 1 country is found, it does not spread  */
+  /* add this so when 1 country is found, it does not spread  */
   .cards > * {
     max-width: 50rem;
   }
