@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import { useState } from "react";
 
+const api_key = process.env.REACT_APP_API_KEY;
 function App() {
   const [darkMode, setDarkMode] = useState(true);
 
@@ -18,10 +19,13 @@ function App() {
       <BrowserRouter>
         <Header switchMode={switchMode} darkMode={darkMode} />
         <Routes>
-          <Route path="/" element={<CountryList darkMode={darkMode} />} />
+          <Route
+            path="/"
+            element={<CountryList darkMode={darkMode} api_key={api_key} />}
+          />
           <Route
             path="/:countryCode"
-            element={<CountryDetail darkMode={darkMode} />}
+            element={<CountryDetail darkMode={darkMode} api_key={api_key} />}
           />
         </Routes>
         <Footer darkMode={darkMode} />

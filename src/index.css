@@ -9,21 +9,24 @@
 }
 
 html {
+  font-family: "Nunito Sans", sans-serif;
   box-sizing: border-box;
   font-size: 62.5%;
   scroll-behavior: smooth;
   line-height: 1.7;
 }
 
-body {
-  font-family: "Nunito Sans", sans-serif;
+:root {
   --clr-body-background: hsl(207, 26%, 17%);
   --clr-card-background: hsl(209, 23%, 22%);
   --clr-text: hsl(0, 0%, 100%);
   --clr-input-text: hsl(0, 0%, 100%);
+}
+
+body {
+  font-size: 1.6rem;
   background: var(--clr-body-background);
   color: var(--clr-text);
-  font-size: 1.6rem;
 }
 
 .light {
@@ -44,6 +47,7 @@ img {
 
 .app-body {
   background-color: var(--clr-body-background);
+  min-height: 100vh;
 }
 
 button {
@@ -286,7 +290,7 @@ select {
 
   .country-details {
     grid-template-columns: 1fr 1fr;
-    place-items: center;
+    /* place-items: center; */
   }
 
   .country-content-middle {

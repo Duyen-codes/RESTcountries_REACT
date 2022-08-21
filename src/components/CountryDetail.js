@@ -1,15 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const CountryDetail = ({ darkMode }) => {
+const CountryDetail = ({ darkMode, api_key }) => {
+  const [weather, setWeather] = useState("");
   let location = useLocation();
   const [country, setCountry] = useState(location.state.country);
   const { countries } = location.state;
   const languages = country?.languages;
   const currencies = country?.currencies;
 
+  const lat = country.latlng[0];
+  const lon = country.latlng[1];
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`
+      )
+      .then((response) => {
+        setWeather(response.data);
+      });
+  }, [lat, lon]);
+
+  const tempC = (((weather?.main?.temp - 32) * 5) / 9).toFixed(2);
   const navigate = useNavigate();
 
   const backToPrevious = () => {
@@ -106,6 +121,17 @@ const CountryDetail = ({ darkMode }) => {
               })}
             </div>
           </div>
+        </div>
+        {/************  Weather  *************/}
+        <div>
+          <h2>Weather in {country?.capital[0]}</h2>
+          <p>Temperature {tempC} Celcius</p>
+          <p>Weather description: {weather?.weather?.[0]?.description}</p>
+          <img
+            src={`http://openweathermap.org/img/wn/${weather?.weather?.[0]?.icon}@2x.png`}
+            alt=""
+          />
+          <p>Wind {weather?.wind?.speed} m/s</p>
         </div>
       </div>
     </div>
