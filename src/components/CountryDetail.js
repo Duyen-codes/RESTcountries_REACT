@@ -125,13 +125,13 @@ const CountryDetail = ({ darkMode, api_key }) => {
         {/************  Weather  *************/}
         <div>
           <h2>Weather in {country?.capital[0]}</h2>
-          <p>Temperature {tempC} Celcius</p>
+          <p>Temperature: {tempC} Celcius</p>
           <p>Weather description: {weather?.weather?.[0]?.description}</p>
           <img
             src={`http://openweathermap.org/img/wn/${weather?.weather?.[0]?.icon}@2x.png`}
             alt=""
           />
-          <p>Wind {weather?.wind?.speed} m/s</p>
+          <p>Wind: {weather?.wind?.speed} m/s</p>
         </div>
       </div>
     </div>
