@@ -1,6 +1,6 @@
 import React from "react";
 
-const Select = ({select, handleSelect}) => {
+const Select = ({ handleSelect }) => {
   return (
     <select
       name="regions"
@@ -8,7 +8,9 @@ const Select = ({select, handleSelect}) => {
       aria-label="regions"
       onChange={(e) => handleSelect(e.target.value)}
     >
-      <option value="">Filter by Region</option>
+      <option value="" hidden>
+        Filter by Region
+      </option>
       <option value="all">All</option>
       <option value="africa">Africa</option>
       <option value="americas">America</option>
