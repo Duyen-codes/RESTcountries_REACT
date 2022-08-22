@@ -13,6 +13,7 @@ const CountryList = ({ darkMode }) => {
   const [loading, setLoading] = useState(false);
 
   const fetchData = () => {
+    setLoading(true);
     axios.get("https://restcountries.com/v3.1/all").then((response) => {
       setCountries(response.data);
       setFilteredCountries(response.data);
