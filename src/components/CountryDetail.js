@@ -18,14 +18,13 @@ const CountryDetail = ({ darkMode, api_key }) => {
   useEffect(() => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`
       )
       .then((response) => {
         setWeather(response.data);
       });
   }, [lat, lon, api_key]);
 
-  const tempC = (((weather?.main?.temp - 32) * 5) / 9).toFixed(2);
   const navigate = useNavigate();
 
   const backToPrevious = () => {
@@ -97,10 +96,14 @@ const CountryDetail = ({ darkMode, api_key }) => {
 
               <div>
                 <span className="language country-info">Languages: </span>
-                {languages &&
+                {/* {languages &&
                   Object.values(languages).map((val, index) => {
                     return <span key={index}>{val}</span>;
-                  })}
+                  })} */}
+                {languages &&
+                  Object.values(languages)
+                    .map((val) => val)
+                    .join(", ")}
               </div>
             </div>
           </div>
@@ -127,7 +130,7 @@ const CountryDetail = ({ darkMode, api_key }) => {
         {/************  Weather  *************/}
         <div>
           <h2>Weather in {country?.capital[0]}</h2>
-          <p>Temperature: {tempC} Celcius</p>
+          <p>Temperature: {weather?.main?.temp} °C</p>
           <p>Weather description: {weather?.weather?.[0]?.description}</p>
           <img
             src={`http://openweathermap.org/img/wn/${weather?.weather?.[0]?.icon}@2x.png`}
