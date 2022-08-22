@@ -1,8 +1,10 @@
 import React from "react";
+import classes from "./Select.module.css";
 
 const Select = ({ handleSelect }) => {
   return (
     <select
+      className={classes["select"]}
       name="regions"
       id="regions"
       aria-label="regions"

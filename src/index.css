@@ -99,20 +99,6 @@ i {
   font-size: 1.8rem;
 }
 
-/* FILTER  */
-
-select {
-  background: var(--clr-card-background);
-  padding: 2rem 4rem;
-  border-radius: 0.5rem;
-  color: var(--clr-text);
-  /* remove default border */
-  border: none;
-  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
-  font-family: inherit;
-  width: 200px;
-}
-
 /* Cards  style with grid */
 /* .cards {  */
 /* display: grid;  */
