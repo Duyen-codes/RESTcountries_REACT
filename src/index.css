@@ -258,7 +258,7 @@ i {
   padding: 5px 10px;
   border-radius: 3px;
   display: inline-block;
-  border: 1px solid white;
+  border: 1px solid var(--clr-text);
 }
 
 @media screen and (min-width: 900px) {
