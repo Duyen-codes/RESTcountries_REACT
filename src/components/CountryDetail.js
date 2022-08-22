@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Button from "react-bootstrap/Button";
 
 const CountryDetail = ({ darkMode, api_key }) => {
   const [weather, setWeather] = useState("");
@@ -22,7 +23,7 @@ const CountryDetail = ({ darkMode, api_key }) => {
       .then((response) => {
         setWeather(response.data);
       });
-  }, [lat, lon]);
+  }, [lat, lon, api_key]);
 
   const tempC = (((weather?.main?.temp - 32) * 5) / 9).toFixed(2);
   const navigate = useNavigate();
@@ -40,9 +41,10 @@ const CountryDetail = ({ darkMode, api_key }) => {
 
   return (
     <div className={`country-detail-wrap ${darkMode ? "light" : ""}`}>
-      <button className="btn back-btn" onClick={backToPrevious}>
+      <Button onClick={backToPrevious} className="btn back-btn">
         <i className="fa-solid fa-arrow-left"></i>Back
-      </button>
+      </Button>
+
       <div className={`country-details ${darkMode ? "light" : ""}`}>
         <img src={country?.flags?.svg} alt="" />
 

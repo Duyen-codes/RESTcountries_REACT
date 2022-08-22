@@ -4,8 +4,9 @@ import Search from "./Search";
 import Select from "./Select";
 import CountryCard from "./CountryCard";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "./LoadingSpinner";
 
-const CountryList = ({ darkMode }) => {
+const CountryList = ({ darkMode, api_key }) => {
   const [countries, setCountries] = useState([]);
   const [filteredCountries, setFilteredCountries] = useState([]);
   const [search, setSearch] = useState("");
@@ -65,7 +66,7 @@ const CountryList = ({ darkMode }) => {
   };
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <LoadingSpinner />;
   }
   return (
     <div className={`app-body ${darkMode ? "light" : ""}`}>
@@ -81,6 +82,7 @@ const CountryList = ({ darkMode }) => {
               to={`${country.cca3}`}
               className="card"
               state={{ country: country, countries: countries }}
+              api_key={api_key}
             >
               <CountryCard
                 flag={country.flags.svg}
