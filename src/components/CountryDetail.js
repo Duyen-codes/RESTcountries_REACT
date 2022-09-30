@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
@@ -28,7 +27,7 @@ const CountryDetail = ({ darkMode, api_key }) => {
   const navigate = useNavigate();
 
   const backToPrevious = () => {
-    navigate("/");
+    navigate(-1);
   };
 
   const handleCountryChange = (borderCountryClicked) => {
